@@ -1,16 +1,15 @@
 import boto3
 import sys
-print("Before Append:", sys.path)
-
-sys.path.append('D:\\GitHub\\snowflake_demo\\first_repo\\utils')
-print("After Append:", sys.path)
-from utils.vaultUtil import VaultClient
+import utils.vaultUtil
+import utils.awsUtil
+sys.path.append(r'D:\GitHub\snowflake_demo\first_repo\src\utils')
+from utils import VaultClient
 from utils.awsUtil import AWSConnector
 
 
 VAULT_URL = "http://127.0.0.1:8200"
-ROLE_ID = "4e783bc0-6984-c0f1-d9d0-3f813e32e31c"
-SECRET_ID = "d16ac449-2906-56bc-47cd-5d23d682e571"
+ROLE_ID = "fe6bd13b-04dd-c79d-d0e1-aea34a9cbb42"
+SECRET_ID = "b4d8c763-d6a9-b2cd-44ec-4a5c182bef2d"
 SECRET_PATH = "secret/data/aws"
 
 vault_client = VaultClient(VAULT_URL, ROLE_ID, SECRET_ID, SECRET_PATH)
